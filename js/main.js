@@ -39,9 +39,10 @@ document.addEventListener("wheel", mainWheel);
 function mainWheel(event) {
   let y = event.deltaY;
   // let wheelSlide; 
+  console.log(y);
   
   // scroll up
-  if (y === -30) {
+  if (y < -120) {
     plusSlides(-1);
     // wheelSlide = window.setInterval(plusSlides, 3000, -1);
     // setTimeout(plusSlides, 5000, -1);
@@ -51,7 +52,7 @@ function mainWheel(event) {
   // clearInterval(wheelSlide, 3000);
   
   // scroll down
-  else if (y === 30) {
+  else if (y > 120) {
     plusSlides(1);
     // wheelSlide = window.setInterval(plusSlides, 5000, 1);
     // setTimeout(plusSlides, 5000, 1);
@@ -113,3 +114,23 @@ for (let i=0; i<moreBtn.length; i++) {
     }
   });
 }
+
+
+// MENU SIDE NAV
+const menuBar = document.querySelector('.menu_bar');
+const closeBar = document.querySelector('.close_bar');
+
+menuBar.addEventListener('click', function() {
+  const sideNav = document.querySelector('.sidenav');
+  sideNav.style.width = "100vw";
+  sideNav.style.right = "0";
+  closeBar.style.opacity = "1";
+  closeBar.style.display = "block";
+});
+closeBar.addEventListener('click', function() {
+  const sideNav = document.querySelector('.sidenav');
+  sideNav.style.width = "0%";
+  sideNav.style.right = "-50%";
+  closeBar.style.opacity = "0";
+  closeBar.style.display = "none";
+});

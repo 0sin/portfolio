@@ -106,6 +106,32 @@ aside {
 .menu_title_item {text-transform: uppercase;}
 
 
+/* SIDE NAV */
+.sidenav {
+  width: 0%; height: 100vh;
+  position: fixed; top: 0; right: -50%;
+  display: flex; flex-flow: column;
+  justify-content: center; align-items: center;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 1);
+  color: var(--color-grey); transition: .8s;
+}
+.sidenav a {
+  display: block; padding: 10px;
+  font-size: 40px; text-transform: uppercase;
+  letter-spacing: .5rem; transition: .4s;
+}
+.sidenav a:hover {color: var(--color-white);}
+.close_bar {
+  font-size: 21px; 
+  position: fixed; top: 60px; right: 105px;
+  z-index: 1000; transition: 1.8s;
+  cursor: pointer; opacity: 0; 
+  display: none;
+}
+.close_bar:hover {color: var(--color-white);}
+
+
 
 
 /* SLIDE BTN */
@@ -164,6 +190,7 @@ footer {
   .work_link h3 {font-size: 14px;}
   
   footer {width: calc(100% - 180px); bottom: 55px; left: 55px;}
+}
 
 @media screen and (max-width: 1024px) {
   aside {width: 160px;}
@@ -181,6 +208,7 @@ footer {
 @media screen and (max-width: 768px) {
   aside {width: 100px;}
   .aside_container {padding: 40px;}
+  .close_bar {top: 40px; right: 50px;}
   
   header {width: calc(100% - 100px); padding: 40px;}
   .home_link {padding: 0px;}
@@ -201,6 +229,6 @@ footer {
 }
 
 @media screen and (max-width: 380px) {
-  /* .aside_container {padding: 32px;} */
-
+  .close_bar {top: 40px; right: 40px;}
+  .sidenav a {padding: 30px; font-size: 26px;}
 }
