@@ -1,26 +1,56 @@
-// onwheel="mainWheel(event)"
+'use strick';
+
+// MOUSE EVENT
+let mousePointer;
+let x = 0;
+let y = 0;
+let mx = 0;
+let my = 0;
+let speed = 0.12;
+
+window.onload = function() {
+  mousePointer = document.querySelector('.mouse_pointer');
+
+  window.addEventListener('mousemove', mouseFunc, false);
+  
+  function mouseFunc(e) {
+    x = e.clientX;
+    y = e.clientY;
+  }
+
+  loop();
+}
+
+function loop() {
+  mx += (x - mx) * speed;
+  my += (y - my) * speed;
+  mousePointer.style.transform = `translate(${mx}px, ${my}px)`;
+  window.requestAnimationFrame(loop);
+}
 
 
-const section = document.querySelectorAll('.main_section');
-// const upBtn = document.querySelector('.up_btn');
-// const downBtn = document.querySelector('.down_btn');
+
+
+// SLIDE SHOW
+const sections = document.querySelectorAll('.main_section');
 let mainSlideIndex = 1;
 mainSlideShow(mainSlideIndex);
 
-// upBtn.addEventListener('click', mainSlideUp);
-// downBtn.addEventListener('click', mainSlideDown);
 
 
-// Slide Show
+
 function mainSlideShow(n) {
-  if (n > section.length) {mainSlideIndex = 1}    
-  if (n < 1) {mainSlideIndex = section.length}
-  for (i = 0; i < section.length; i++) {
-      section[i].style.display = "none";  
-      // section[i].style.opacity = "0";  
-  } 
-  section[mainSlideIndex-1].style.display = "block";  
-  // section[mainSlideIndex-1].style.opacity = "1";  
+
+  if (n > sections.length) {
+    mainSlideIndex = 1
+  } else if (n < 1) {
+    mainSlideIndex = sections.length
+  }
+
+  for (let section of sections) {
+    section.style.display = "none";  
+  }
+  sections[mainSlideIndex-1].style.display = "block";  
 }
 
 // Slide Btn Click
@@ -28,6 +58,13 @@ function plusSlides(n) {
   mainSlideShow(mainSlideIndex += n);
 }
 
+
+// BTN CLICK -> SLIDE CHANGE
+const upBtn = document.querySelector('.up_btn');
+const downBtn = document.querySelector('.down_btn');
+
+upBtn.addEventListener('click', () => mainSlideShow(mainSlideIndex += -1));
+downBtn.addEventListener('click', () => mainSlideShow(mainSlideIndex += 1));
 
 
 
@@ -78,8 +115,8 @@ window.addEventListener('resize', function() {
     if (viewWidthSize < 768) {
       console.log("in");
       document.removeEventListener("wheel", mainWheel);
-      for (let i = 0; i < section.length; i++) {
-        section[i].style.display = "block";  
+      for (let i = 0; i < sections.length; i++) {
+        sections[i].style.display = "block";  
       }
     } else {
       console.log("out");
@@ -99,21 +136,18 @@ window.addEventListener('resize', function() {
 
 
 
-// MORE BTN
+// MORE BTN MOUSEOVER COLOR CHANGE 
 const moreBtn = document.querySelectorAll('.more_btn');
 const main_bg = document.querySelectorAll('.main_bg');
-for (let i=0; i<moreBtn.length; i++) {
-  moreBtn[i].addEventListener('mouseover', function() {
-    for (let i=0; i<main_bg.length; i++) {
-      main_bg[i].classList.add('color');
-    }
-  });
-  moreBtn[i].addEventListener('mouseout', function() {
-    for (let i=0; i<main_bg.length; i++) {
-      main_bg[i].classList.remove('color');
-    }
-  });
-}
+
+moreBtn.forEach((e, idx) => e.addEventListener('mouseover', () => {
+  main_bg[idx].classList.add('color');
+}));
+moreBtn.forEach((e) => e.addEventListener('mouseout', () => {
+  main_bg.forEach(e => e.classList.remove('color'));
+}));
+
+
 
 
 // MENU SIDE NAV
