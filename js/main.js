@@ -33,97 +33,51 @@ function loop() {
 
 // SLIDE SHOW
 const sections = document.querySelectorAll('.main_section');
-let mainSlideIndex = 1;
-mainSlideShow(mainSlideIndex);
+let mainIndex = 0;
 
+function goToMain(idx) {
+  mainIndex += idx;
 
-
-
-function mainSlideShow(n) {
-
-  if (n > sections.length) {
-    mainSlideIndex = 1
-  } else if (n < 1) {
-    mainSlideIndex = sections.length
+  if (mainIndex > sections.length - 1) {
+    mainIndex = 0;
+  } else if (mainIndex < 0) {
+    mainIndex = sections.length - 1;
   }
 
-  for (let section of sections) {
-    section.style.display = "none";  
+  for (let i=0; i<sections.length; i++) {
+    sections[i].style.transform = "translate(0px, -100%)";
   }
-  sections[mainSlideIndex-1].style.display = "block";  
+  sections[mainIndex].style.transform = `translate(0px, 0px)`;
+  console.log(mainIndex);
 }
-
-// Slide Btn Click
-function plusSlides(n) {
-  mainSlideShow(mainSlideIndex += n);
-}
+goToMain(mainIndex);
 
 
-// BTN CLICK -> SLIDE CHANGE
 const upBtn = document.querySelector('.up_btn');
 const downBtn = document.querySelector('.down_btn');
 
-upBtn.addEventListener('click', () => mainSlideShow(mainSlideIndex += -1));
-downBtn.addEventListener('click', () => mainSlideShow(mainSlideIndex += 1));
+upBtn.addEventListener('click', () => goToMain(-1));
+downBtn.addEventListener('click', () => goToMain(1));
 
 
 
+// 2초마다 휠값을 판별
+let goToMainNextLoop = setInterval(onWheelEvent, 2000);
 
-
-// Wheel Event
-document.addEventListener("wheel", mainWheel);
-
-function mainWheel(event) {
-  let y = event.deltaY;
-  // let wheelSlide; 
-  console.log(y);
-  
-  // scroll up
-  if (y < -120) {
-    plusSlides(-1);
-    // wheelSlide = window.setInterval(plusSlides, 3000, -1);
-    // setTimeout(plusSlides, 5000, -1);
-    console.log(y + "up");
-    // return;
-  }
-  // clearInterval(wheelSlide, 3000);
-  
-  // scroll down
-  else if (y > 120) {
-    plusSlides(1);
-    // wheelSlide = window.setInterval(plusSlides, 5000, 1);
-    // setTimeout(plusSlides, 5000, 1);
-    console.log( y + "down");
-    // return;
-  }
-  // clearInterval(wheelSlide, 3000);
-
+// 휠 작동시 이동은 한번만 작동
+function onWheelEvent() {
+  document.addEventListener('wheel', e => {
+    // console.log(e);
+    if (e.deltaY > 0) {
+      console.log("down");
+      goToMain(1);
+    } else if (e.deltaY < 0) {
+      goToMain(-1)
+      console.log("up");
+    }
+  }, {once: true});
 }
 
-
-
-
-
-
-
-// 768PX 이하에서 슬라이드, 휠이벤트 초기화
-// let viewWidthSize = document.documentElement.clientWidth;
-window.addEventListener('resize', function() {
-  let viewWidthSize = window.innerWidth;
-  console.log(viewWidthSize);
-
-    if (viewWidthSize < 768) {
-      console.log("in");
-      document.removeEventListener("wheel", mainWheel);
-      for (let i = 0; i < sections.length; i++) {
-        sections[i].style.display = "block";  
-      }
-    } else {
-      console.log("out");
-      document.addEventListener("wheel", mainWheel);
-      mainSlideShow(1);
-    }
-});
 
 
 
