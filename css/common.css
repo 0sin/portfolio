@@ -167,9 +167,13 @@ aside {
 footer {
   width: calc(100% - 230px);
   height: auto;
-  position: fixed; bottom: 60px; left: 60px;
+  padding: 60px;
+  position: fixed; bottom: 0; left: 0;
   z-index: 100;
-  display: flex; justify-content: flex-start; align-items: flex-end;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  font-size: 18px;
 }
 
 .email {transition: .2s;}
@@ -180,8 +184,32 @@ footer {
 .email:hover {transform: scale(1.4);}
 .footer_contact {display: none;}
 
+.scroll_to_move {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: scrollMoving 1.7s infinite;
+  opacity: 1;
+  transition: opacity .7s;
+}
+.scroll_to_move.hidden {
+  opacity: 0;
+}
 
+@keyframes scrollMoving {
+  0% {transform: translate(0px, 8px);}
+  50% {transform: translate(0px, -8px);}
+  100% {transform: translate(0px, 8px);}
+}
 
+@keyframes fade {
+  from {opacity: .2} 
+  to {opacity: 1}
+}
+
+.pagination span {
+  color: var(--color-sub);
+}
 
 
 
@@ -194,11 +222,13 @@ footer {
   .main_btn {width: 45px; height: 45px;}
   .up_btn {margin: 0 0 15px;}
   
-  header {width: calc(100% - 180px); padding: 50px;}
+  header, 
+  footer {
+    width: calc(100% - 180px); padding: 50px;
+  }
+
   .home_link h1 {font-size: 14px;}
-  .work_link h3 {font-size: 14px;}
-  
-  footer {width: calc(100% - 180px); bottom: 55px; left: 55px;}
+  .work_link h3 {font-size: 14px;} 
 }
 
 @media screen and (max-width: 1024px) {
