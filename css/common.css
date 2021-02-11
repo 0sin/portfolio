@@ -28,7 +28,8 @@ body {
   font-weight: 400; letter-spacing: .1rem;
   font-style: normal;
   width: 100%;
-  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
   /* -webkit-tap-highlight-color: rgba(0,0,0,0); */
 }
 
@@ -94,6 +95,7 @@ header {
 aside {
   width: 230px; height: 100%;
   position: fixed; top: 0; right: 0; bottom: 0;
+  background-color: #131111;
   z-index: 100;
 }
 
@@ -107,7 +109,7 @@ aside {
   transition: .4s;
 }
 
-.aside_container:hover {background-color: rgba(0, 0, 0, 0.8);}
+.aside_container:hover {background-color: #000000;}
 
 .menu_bar {font-size: 16px; cursor: pointer;}
 
@@ -207,6 +209,9 @@ footer {
   to {opacity: 1}
 }
 
+.pagination {
+  display: block;
+}
 .pagination span {
   color: var(--color-sub);
 }
@@ -245,7 +250,13 @@ footer {
 
 
 @media screen and (max-width: 768px) {
-  aside {width: 100px;}
+  body {
+    overflow-y: auto;
+  }
+  aside {
+    width: 100px;
+    background-color: transparent;
+  }
   .aside_container {padding: 40px;}
   .close_bar {top: 40px; right: 50px;}
   
@@ -261,10 +272,31 @@ footer {
     position: static; bottom: auto; left: auto;
     justify-content: center; align-items: center;
   }
-  .footer_contact {display: block; text-align: center;}
-  .footer_contact h3 {text-transform: uppercase; font-size: 16px; margin: 0 0 8px;}
-  .footer_contact p {font-size: 14px; line-height: 22px;}
-  .footer_contact span {display: block; font-size: 10px; line-height: 10px; margin: 42px 0 0;}
+  .footer_contact {
+    display: block; 
+    text-align: center;
+  }
+  .footer_contact h3 {
+    text-transform: uppercase; 
+    font-size: 16px; margin: 0 0 8px;
+  }
+  .footer_contact p {
+    font-size: 14px; 
+    line-height: 22px;
+  }
+  .footer_contact span {
+    display: block; 
+    font-size: 10px; 
+    line-height: 10px; 
+    margin: 42px 0 0;
+  }
+
+  .pagination {
+    display: none;
+  }
+  .scroll_to_move {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 380px) {

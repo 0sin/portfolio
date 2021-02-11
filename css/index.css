@@ -11,12 +11,17 @@ body {
 /* MAIN */
 /* SLIDE */
 .main_section {
-  width: 100%; height: 100%;
-  position: absolute; top: 0; bottom:0; left: 0; right: 0;
+  width: 100%; 
+  height: 100%;
+  position: absolute; 
+  top: 0; bottom:0; left: 0; right: 0;
   overflow: hidden;
-  opacity: 1;
-  transition: transform 1.5s;
+  transform: translateX(100%);
   will-change: transform;
+}
+
+.main_section:first-child {
+  transform: translateX(0px);
 }
 
 .main_bg {
@@ -32,6 +37,25 @@ body {
 .ferrari {background-image: url(../img/main_slide_color_ferrari.png);}
 .gopro {background-image: url(../img/main_slide_color_gopro.png);}
 .auntie_annes {background-image: url(../img/main_slide_color_auntieanns.png);}
+
+
+.div_black {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--color-black);
+  z-index: 10;
+  transform: translateX(100%);
+}
+
+@keyframes showBlackDiv {
+  0% {transform: translateX(100%)}
+  50% {transform: translateX(0px)}
+  60% {transform: translateX(0px)}
+  100% {transform: translateX(100%)}
+}
+
 
 
 /* MAIN TEXT */
@@ -103,8 +127,9 @@ body {
 /* TABLET */
 @media screen and (max-width: 768px) {
   .main_section {
-    height: 88vh; position: relative; 
+    height: 88vh; position: static; 
     top: auto; bottom: auto; left: auto; right: auto;
+    transform: translateY(0px);
   }
   .main_text_wrap {top: auto; left: 50px; bottom: 12%; z-index: 10;}
   .main_title {font-size: 3.4rem; margin: 0 0 26px;}
