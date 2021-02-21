@@ -4,112 +4,175 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio | Youngsin Joung</title>
-  <link rel="stylesheet" href="https://use.typekit.net/nre3vgm.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/nre3vgm.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" href="css/common.css">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/common.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/index.css">
 
-  <script src="js/main.js" defer></script>
+  <script src="assets/js/common.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 
 <body>
-  <div class="mouse_pointer"></div>
-  
-  <div class="whole_wrap">
-    <header>
-      <div class="home_link">
-        <a href="index.html">
-          <h1>
-          YEONG <br>
-          SIN <br>
-          JOUNG</h1> 
-        </a>
-      </div>
-      <div class="work_link">
-        <a href="sub/all.html">
-          <!-- <i class="fas fa-th-large"></i> -->
-          <i class="fas fa-grip-horizontal"></i>
-          <h3>all works</h3>
-        </a>
-      </div>
-    </header>
 
-    <aside>
-      <div class="aside_container">
-        <div class="menu_bar">
-          <i class="fas fa-bars"></i>
-        </div>
-        <div class="menu_title">
-          <h3 class="menu_title_item">home</h3>
-        </div>
-        <div class="main_index_btn">
-          <div class="main_btn up_btn"><i class="fas fa-angle-up"></i></div>
-          <div class="main_btn down_btn"><i class="fas fa-angle-down"></i></div>
-        </div>
-        <nav class="sidenav">
-          <div class="close_bar"><i class="fas fa-times"></i></div>
-          <a href="index.html">Home</a>
-          <a href="sub/all.html">All Works</a>
-          <a href="#">Study</a>
-          <a href="#">Contact</a>
-        </nav>
-      </div>
-    </aside>
+  <!-- Header -->
+  <header>
+    <div class="home_link">
+      <a href="index.html">
+        <h1>
+        YEONG <br/>
+        SIN <br/>
+        JOUNG
+        </h1> 
+      </a>
+    </div>
+    <div class="work_link">
+      <a href="pages/all.html">
+        <i class="fas fa-grip-horizontal"></i>
+        <h3>All works</h3>
+      </a>
+    </div>
+  </header>
 
-    <main>
-      <section class="main_section">
-        <figure class="main_bg portfolio"></figure>
-        <div class="main_text_wrap">
-          <h2 class="main_title">Welcome to Portfolio</h2>
-          <p class="main_cont">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate explicabo soluta voluptas nulla.</p>
-          <button class="more_btn"><a href="#">
-            <h3>MORE</h3></a></button>
+  <!-- Aside -->
+  <aside>
+    <div class="aside_container">
+      <div class="menu_bars">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="menu_title">
+        <h3 class="menu_title_item">home</h3>
+      </div>
+      <div class="main_index_btn">
+        <div class="main_btn up_btn">
+          <i class="fas fa-angle-up"></i>
         </div>
-      </section>
-      <section class="main_section">
-        <figure class="main_bg ferrari"></figure>
-        <div class="main_text_wrap">
+        <div class="main_btn down_btn">
+          <i class="fas fa-angle-down"></i>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main>
+    <section class="main_section">
+      <figure class="main_bg portfolio"></figure>
+      <div class="main_text_wrap">
+        <h2 class="main_title">Welcome to Portfolio</h2>
+        <p class="main_cont ko">정영신의 포트폴리오 입니다. MORE 클릭시 github 계정으로 이동합니다.</p>
+        <p class="main_cont">Youngsin Joung's portfolio. Click the more button to go the github repository.</p>
+        <button class="more_btn">
+          <a href="https://github.com/0sin/" target="_blank">
+            <h3>More</h3>
+          </a>
+        </button>
+      </div>
+    </section>
+    <section class="main_section">
+      <figure class="main_bg drink"></figure>
+      <div class="main_text_wrap">
+        <a href="https://0sin.github.io/whatshouldidrinktoday/" target="_blank">
+          <h2 class="main_title">What should I drink today</h2>
+        </a>
+        <p class="main_cont ko">
+          오늘 뭐 마시지? 간단한 질문과 선택지로 오늘 무슨 음료를 마실지 결정해보기.<br/>
+          타이틀을 클릭하면 테스트 페이지로 이동합니다.
+        </p>
+        <p class="main_cont">Decide what drink today with simple questions. Click the Title to go the test page.</p>
+        <button class="more_btn">
+          <a href="https://github.com/0sin/whatshouldidrinktoday" target="_blank">
+            <h3>More</h3>
+          </a>
+        </button>
+      </div>
+    </section>
+    <section class="main_section">
+      <figure class="main_bg ferrari"></figure>
+      <div class="main_text_wrap">
+        <a href="https://0sin.github.io/Ferrari/" target="_blank">
           <h2 class="main_title">Ferrari</h2>
-          <p class="main_cont">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <button class="more_btn"><a href="https://0sin.github.io/Ferrari/">
-            <h3>MORE</h3></a></button>
-        </div>
-      </section>
-      <section class="main_section">
-        <figure class="main_bg gopro"></figure>
-        <div class="main_text_wrap">
-          <h2 class="main_title">GoPro</h2>
-          <p class="main_cont">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <button class="more_btn"><a href="https://0sin.github.io/gopro/"><h3>MORE</h3></a></button>
-        </div>
-      </section>
-      <section class="main_section">
-        <figure class="main_bg auntie_annes"></figure>
-        <div class="main_text_wrap">
+        </a>
+        <p class="main_cont ko">팀 프로젝트. MORE 클릭시 github repository로 이동합니다.</p>
+        <p class="main_cont">Team Project. Click the more button to go the github repository.</p>
+        <button class="more_btn">
+          <a href="https://github.com/0sin/Ferrari/tree/main" target="_blank">
+            <h3>MORE</h3>
+          </a>
+        </button>
+      </div>
+    </section>
+    <section class="main_section">
+      <figure class="main_bg auntie_annes"></figure>
+      <div class="main_text_wrap">
+        <a href="https://0sin.github.io/auntieanns/" target="_blank">
           <h2 class="main_title">Auntie Anne's</h2>
-          <p class="main_cont">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-          <button class="more_btn"><a href="https://0sin.github.io/auntieanns/"><h3>MORE</h3></a></button>
-        </div>
-      </section>
-    </main>
+        </a>
+        <p class="main_cont ko">팀 프로젝트. MORE 클릭시 github repository로 이동합니다.</p>
+        <p class="main_cont">Team Project. Click the more button to go the github repository.</p>
+        <button class="more_btn">
+          <a href="https://github.com/0sin/auntieanns" target="_blank">
+            <h3>MORE</h3>
+          </a>
+        </button>
+      </div>
+    </section>
+    <section class="main_section">
+      <figure class="main_bg gopro"></figure>
+      <div class="main_text_wrap">
+        <a href="https://0sin.github.io/gopro/" target="_blank">
+          <h2 class="main_title">GoPro</h2>
+        </a>
+        <p class="main_cont ko">개인 프로젝트. MORE 클릭시 github repository로 이동합니다.</p>
+        <p class="main_cont">Solo Project. Click the more button to go the github repository.</p>
+        <button class="more_btn">
+          <a href="https://github.com/0sin/gopro" target="_blank">
+            <h3>MORE</h3>
+          </a>
+        </button>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-      <div class="email"><a href="mailto:0-sin@naver.com"><i class="far fa-envelope"></a></i></div>
-      <div class="scroll_to_move">
-        Scroll to move
-        <i class="fas fa-caret-down"></i>
-      </div>
-      <div class="pagination">4 | <span>1</span></div>
-      <div class="footer_contact">
-        <h3>contact</h3>
-        <p><a href="mailto:yeongsinjoung@gmail.com">yeongsinjoung@gmail.com</a></p>
-        <p><a href="mailto:0-sin@naver.com">0-sin@naver.com</a></p>
-        <span>Copyright 2020. 0-sin All rights reserved.</span>
-      </div>
-    </footer>
-  </div>
+  <!-- Footer -->
+  <footer>
+    <div class="email">
+      <a href="mailto:0-sin@naver.com">
+        <i class="far fa-envelope"></i>
+      </a>
+    </div>
+    <div class="scroll_to_move">
+      Scroll to move
+      <i class="fas fa-caret-down"></i>
+    </div>
+    <div class="pagination">5 | <span>1</span></div>
+    <div class="footer_contact">
+      <h3>contact</h3>
+      <p>
+        <a href="mailto:yeongsinjoung@gmail.com">yeongsinjoung@gmail.com</a>
+      </p>
+      <p>
+        <a href="mailto:0-sin@naver.com">0-sin@naver.com</a>
+      </p>
+      <span>Copyright 2021. 0-sin All rights reserved.</span>
+    </div>
+  </footer>
+
+  <!-- Side Nav -->
+  <nav class="sidenav">
+    <div class="close_btn">
+      <i class="fas fa-times"></i>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="pages/all.html">All Works</a>
+    <a href="#">About me</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Etc -->
   <div class="div_black"></div>
+  <div class="mouse_pointer"></div>
 </body>
 </html>
