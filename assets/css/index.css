@@ -1,4 +1,11 @@
 /* MAIN */
+#main {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
 /* Slide */
 .main_section {
   width: 100%; 
@@ -57,6 +64,7 @@
   background-color: var(--color-black);
   z-index: 10;
   transform: translateX(100%);
+  overflow: hidden;
 }
 
 @keyframes showBlackDiv {
@@ -161,6 +169,7 @@
 
 /* TABLET */
 @media screen and (max-width: 768px) {
+  #main {height: 100%;}
   .main_section {
     height: 88vh; position: static; 
     top: auto; bottom: auto; left: auto; right: auto;

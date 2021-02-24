@@ -41,8 +41,6 @@ body {
   letter-spacing: .1rem;
   background-color: var(--color-black);
   color: var(--color-white);
-  overflow-y: hidden;
-  overflow-x: hidden;
   cursor: default;
 }
 
@@ -357,9 +355,6 @@ footer {
 
 
 @media screen and (max-width: 768px) {
-  body {
-    overflow-y: auto;
-  }
   aside {
     width: 100px;
   }

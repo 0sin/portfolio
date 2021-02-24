@@ -152,31 +152,39 @@ moreBtn.forEach((e) => e.addEventListener('mouseout', () => {
   main_bg.forEach(e => e.classList.remove('color'));
 }));
 
-// viewport 768px 이하 main static
-function checkTabletSize() {
-  if(window.matchMedia('(max-width: 768px)').matches) {
+
+
+// viewport 768px 이하
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+function checkTabletSize(e) {
+  if(e.matches) {
     console.log('768이하')
-    stopMoveMousePointer();
+    // stopMoveMousePointer();
     stopAnimationBlackDiv();
     clearInterval(checkWheelEvent);
   } else {
-    checkWheelEvent = setInterval(onWheelEvent, 2000);
-    console.log('769이상')
+    console.log('769이상');
   }
 }
 
+// Initial check
+checkWheelEvent = setInterval(onWheelEvent, 2000);
+checkTabletSize(mediaQuery);
+
+// Register event listener
+mediaQuery.addListener(checkTabletSize);
+// window.addEventListener('resize', checkTabletSize);
+
 // Resize
-window.addEventListener('resize', e => {
-  let width = e.target.innerWidth;
+// window.addEventListener('resize', e => {
+//   let width = e.target.innerWidth;
 
-  if (width < 768) {
-    initMainSectionsTranslateX();
-    stopAnimationBlackDiv();
-    clearInterval(checkWheelEvent);
-  } 
-  console.log(width);
-});
+//   if (width < 768) {
+//     initMainSectionsTranslateX();
+//     stopAnimationBlackDiv();
+//     clearInterval(checkWheelEvent);
+//   } 
+//   console.log(width);
+// });
 
-
-// 첫화면
-checkTabletSize();
