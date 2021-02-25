@@ -1,3 +1,6 @@
+body {
+  overflow: hidden;
+}
 /* MAIN */
 #main {
   width: 100%;
@@ -169,6 +172,7 @@
 
 /* TABLET */
 @media screen and (max-width: 768px) {
+  body {overflow: auto;}
   #main {height: 100%;}
   .main_section {
     height: 88vh; position: static; 

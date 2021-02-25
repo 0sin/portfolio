@@ -163,6 +163,7 @@ function checkTabletSize(e) {
     // stopMoveMousePointer();
     stopAnimationBlackDiv();
     clearInterval(checkWheelEvent);
+    initMainSectionsTranslateX();
   } else {
     console.log('769이상');
   }
@@ -173,18 +174,5 @@ checkWheelEvent = setInterval(onWheelEvent, 2000);
 checkTabletSize(mediaQuery);
 
 // Register event listener
-mediaQuery.addListener(checkTabletSize);
-// window.addEventListener('resize', checkTabletSize);
-
-// Resize
-// window.addEventListener('resize', e => {
-//   let width = e.target.innerWidth;
-
-//   if (width < 768) {
-//     initMainSectionsTranslateX();
-//     stopAnimationBlackDiv();
-//     clearInterval(checkWheelEvent);
-//   } 
-//   console.log(width);
-// });
+mediaQuery.addEventListener('change', checkTabletSize);
 
